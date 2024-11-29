@@ -46,7 +46,7 @@ const Home = () => {
     <VStack className="flex-1 bg-secondary-100 md:bg-secondary-0 md:items-center md:justify-center ">
       <VStack className="rounded-md bg-secondary-100 md:h-[500px] md:w-[700px]">
         <FormControl className="my-4">
-          <Input variant="underlined" size="sm" className="mx-6 my-2">
+          <Input variant="underlined" size="xl" className="mx-6 my-2">
             <InputField
               placeholder="What is your next task?"
               value={item}
@@ -54,7 +54,7 @@ const Home = () => {
               onSubmitEditing={() => addTodo(item)}
             />
             <Pressable onPress={() => addTodo(item)}>
-              <InputIcon as={AddIcon} className="cursor-pointer h-3 w-3" />
+              <InputIcon as={AddIcon} className="cursor-pointer h-6 w-6" />
             </Pressable>
           </Input>
         </FormControl>

@@ -3,6 +3,7 @@
     "name": "todo-app-v2",
     "slug": "todo-app-v2",
     "version": "1.0.0",
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -13,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "ui.jsullivan.todo-app-v0"
     },
     "android": {
       "adaptiveIcon": {
@@ -40,9 +42,7 @@
         "projectId": "2f45053e-e4a6-4598-b0bb-5b7a5024029d"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/2f45053e-e4a6-4598-b0bb-5b7a5024029d"
     }

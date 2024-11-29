@@ -32,7 +32,6 @@ const TodoContainer = ({
     >
       <Checkbox
         onChange={(_isChecked) => toggleTodo(todo.id)}
-        size="sm"
         aria-label={todo.task}
         value={todo.task}
         isChecked={todo.completed}
@@ -41,7 +40,7 @@ const TodoContainer = ({
         <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
         </CheckboxIndicator>
-        <CheckboxLabel className="text-sm data-[checked=true]:line-through">
+        <CheckboxLabel className="text-xl data-[checked=true]:line-through">
           {todo.task}
         </CheckboxLabel>
       </Checkbox>
@@ -50,7 +49,6 @@ const TodoContainer = ({
           return (
             <Icon
               as={CloseIcon}
-              size="xs"
               className={hovered ? "stroke-red-400" : "stroke-primary-50"}
             />
           );
