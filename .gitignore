@@ -3,6 +3,7 @@ dist/
 .expo/
 ios/
 android/
+.yarn/
 npm-debug.*
 *.jks
 *.p8

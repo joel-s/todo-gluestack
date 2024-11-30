@@ -1,13 +1,13 @@
-import React from "react";
-import { HStack } from "@/components/ui/hstack";
-import { Pressable } from "@/components/ui/pressable";
-import { CheckIcon, CloseIcon, Icon } from "@/components/ui/icon";
+import React from 'react';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { CheckIcon, CloseIcon, Icon } from '@/components/ui/icon';
 import {
   Checkbox,
   CheckboxIcon,
   CheckboxIndicator,
   CheckboxLabel,
-} from "@/components/ui/checkbox";
+} from '@/components/ui/checkbox';
 
 export interface Todo {
   id: string;
@@ -36,11 +36,12 @@ const TodoContainer = ({
         value={todo.task}
         isChecked={todo.completed}
         className="pl-6 py-2 flex-1"
+        size="sm"
       >
         <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
         </CheckboxIndicator>
-        <CheckboxLabel className="text-xl data-[checked=true]:line-through">
+        <CheckboxLabel className="text-lg data-[checked=true]:line-through">
           {todo.task}
         </CheckboxLabel>
       </Checkbox>
@@ -49,7 +50,7 @@ const TodoContainer = ({
           return (
             <Icon
               as={CloseIcon}
-              className={hovered ? "stroke-red-400" : "stroke-primary-50"}
+              className={hovered ? 'stroke-red-400' : 'stroke-primary-50'}
             />
           );
         }}

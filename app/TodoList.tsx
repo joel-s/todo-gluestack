@@ -4,13 +4,12 @@ import { FormControl } from '@/components/ui/form-control';
 import { Input, InputField, InputIcon } from '@/components/ui/input';
 import { AddIcon } from '@/components/ui/icon';
 import { Pressable } from '@/components/ui/pressable';
-import { defaultTodos } from '@/constants/todo';
 import TodoContainer, { Todo } from '@/components/app-components/TodoContainer';
 import shortid from 'shortid';
 
-const TodoList = () => {
+const TodoList = ({ list }: { list: Todo[] }) => {
   const [item, setItem] = useState('');
-  const [todos, setTodos] = useState<Todo[]>(defaultTodos);
+  const [todos, setTodos] = useState<Todo[]>(list);
 
   const addTodo = (task: string) => {
     const lastTodo = todos[todos?.length - 1];
@@ -43,10 +42,10 @@ const TodoList = () => {
   };
 
   return (
-    <VStack className="flex-1 bg-secondary-100 md:bg-secondary-0 md:items-center md:justify-center ">
-      <VStack className="rounded-md bg-secondary-100 md:h-[500px] md:w-[700px]">
+    <VStack className="flex-1 md:items-center md:justify-center ">
+      <VStack className="rounded-md w-full md:h-[500px] min-h-24 pb-2">
         <FormControl className="my-4">
-          <Input variant="underlined" size="xl" className="mx-6 my-2">
+          <Input variant="underlined" size="lg" className="mx-6 my-1">
             <InputField
               placeholder="What is your next task?"
               value={item}
@@ -54,7 +53,7 @@ const TodoList = () => {
               onSubmitEditing={() => addTodo(item)}
             />
             <Pressable onPress={() => addTodo(item)}>
-              <InputIcon as={AddIcon} className="cursor-pointer h-6 w-6" />
+              <InputIcon as={AddIcon} className="cursor-pointer h-4 w-4" />
             </Pressable>
           </Input>
         </FormControl>

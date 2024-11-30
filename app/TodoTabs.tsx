@@ -1,27 +1,37 @@
 import * as React from 'react';
-import * as TabsPrimitive from '@rn-primitives/tabs';
-import { Text } from 'react-native';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/react-native-reusables/tabs';
+import { Text, View } from 'react-native';
 import TodoList from '@/app/TodoList';
-
-const categoryNames = ['God', 'Health', 'Career', 'Home'];
+import { defaultTodos } from '@/constants/todo';
 
 const Home = () => {
-  const [value, setValue] = React.useState(categoryNames[0]);
+  const [value, setValue] = React.useState(Object.keys(defaultTodos)[0]);
   return (
-    <TabsPrimitive.Root value={value} onValueChange={setValue}>
-      <TabsPrimitive.List>
-        {categoryNames.map((name) => (
-          <TabsPrimitive.Trigger key={name} value={name}>
-            <Text>{name}</Text>
-          </TabsPrimitive.Trigger>
+    <View>
+      <Tabs
+        value={value}
+        onValueChange={setValue}
+        className="w-full max-w-[400px] mx-auto flex-col gap-1.5"
+      >
+        <TabsList className="flex-row w-full bg-gray-100">
+          {Object.keys(defaultTodos).map((category) => (
+            <TabsTrigger key={category} value={category} className="flex-1">
+              <Text>{category}</Text>
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        {Object.keys(defaultTodos).map((category) => (
+          <TabsContent key={category} value={category}>
+            <TodoList list={defaultTodos[category]} />
+          </TabsContent>
         ))}
-      </TabsPrimitive.List>
-      {categoryNames.map((name) => (
-        <TabsPrimitive.Content key={name} value={name}>
-          <TodoList />
-        </TabsPrimitive.Content>
-      ))}
-    </TabsPrimitive.Root>
+      </Tabs>
+    </View>
   );
 };
 
